@@ -1,0 +1,8 @@
+#ROLE TBL
+insert into role_dtls values (1,'ADMIN');
+insert into role_dtls values (2,'USER');
+
+#USER TBL
+insert into user_dtls values (1,'HYD',36,'javashashavali@gmail.com','shasha','$2a$12$rSxpopmGSVgWdgH3f.rPr.kSCkYmCJ5iEMStLztCEpc1atkhRKIuq
+',1);
+pwd:Sh@123
