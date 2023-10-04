@@ -27,6 +27,10 @@ public class GlobalExceptionHandling {
 	public ResponseEntity<?> handleInvalidUserException(InvalidUserException ex) {
 		return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
 	}
+	@ExceptionHandler(InvalidRoleException.class)
+	public ResponseEntity<?> handleInvalidRoleException(InvalidRoleException ex) {
+		return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<?> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {

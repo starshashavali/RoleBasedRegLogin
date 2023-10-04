@@ -67,20 +67,20 @@ public class MyUserDetailsServiceImpl {
 	public String loginUser(LoginRequest request) {
 		UserEntity entity = userRepo.findByUserEmailAndUserPwd(request.getUserEmail(), request.getUserPwd());
 
-		if (entity == null) {
+		if (entity == null || request == null) {
 			throw new InvalidCredentialsException("Invalid credentials...");
 		}
 		if (!entity.isActive()) {
-			throw new InvalidUserException("Invalid User credentials...");
+			throw new InvalidUserException("InActive User credentials...");
 		}
-
-		return "login credentials success";
+		if ("USER".equalsIgnoreCase(entity.getRole().getRoleName())) {
+			return "User loging";
+		}
+		return "Admin loging";
 
 	}
-	/*
-	 * public List<UserEntity> getAllUsersWithUserRole() { return
-	 * userRepo.findAllUsersByRoleId(); }
-	 */
+
+	
 
 	public List<UserEntity> getAllUsersWithUserRole() {
 		RoleEntity userRole = roleRepo.findByRoleName("USER");
